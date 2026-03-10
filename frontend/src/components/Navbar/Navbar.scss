@@ -1,0 +1,43 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-nav; 
+  padding: $spacing-md $spacing-lg;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid $color-border; 
+  transition: background-color 0.3s ease;
+
+  &-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: $color-text;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+      padding-bottom: 0.2rem;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.active {
+        color: $color-primary;
+        border-bottom: 2px solid $color-primary;
+      }
+    }
+  }
+}

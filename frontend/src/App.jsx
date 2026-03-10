@@ -1,23 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboards/Dashboard'
 
 function App() {
-  const [data, setData] = useState([]);
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/chart-data')
-      .then(res => setData(res.data))
-      .catch(err => console.error("Erro na API:", err));
-  }, []);
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme)
+        localStorage.setItem('theme', theme)
+        document.title = "💸 Money Journey";
+    }, [theme])
 
-  return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>Money Journey 📈</h1>
-      <div style={{ background: '#f4f4f4', padding: '20px', borderRadius: '8px' }}>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
-    </div>
-  );
+    const toggleTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light')
+    }
+
+    return (
+        <div className="app-container">
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
+
+            <main style={{ padding: '2rem' }}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="*" element={<h2>Página não encontrada 😢</h2>} />
+                </Routes>
+            </main>
+        </div>
+    )
 }
 
-export default App;
+export default App

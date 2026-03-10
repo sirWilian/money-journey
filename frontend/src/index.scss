@@ -1,0 +1,24 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-primary;
+    background-color: $color-bg;
+    color: $color-text;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Reset básico para links e listas
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}

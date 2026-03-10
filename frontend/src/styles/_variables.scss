@@ -1,0 +1,28 @@
+:root {
+    // Light Mode
+    --bg-color: #f4f4f9;
+    --text-color: #333333;
+    --nav-bg: #ffffff;
+    --primary-color: #4CAF50;
+    --border-color: #dddddd;
+}
+
+[data-theme="dark"] {
+    // Dark Mode
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --nav-bg: #1a1a1a;
+    --primary-color: #4CAF50;
+    --border-color: #333333;
+}
+
+$color-bg: var(--bg-color);
+$color-text: var(--text-color);
+$color-nav: var(--nav-bg);
+$color-primary: var(--primary-color);
+$color-border: var(--border-color);
+
+$font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
