@@ -1,0 +1,33 @@
+// ============================================
+// Balance Records Page Styles
+// ============================================
+@use '@/styles/variables' as *;
+
+.record-row {
+  flex-wrap: wrap;
+}
+
+.record-info {
+  flex: 1;
+  min-width: 150px;
+
+  strong {
+    display: block;
+  }
+}
+
+.record-date {
+  font-size: $font-xs;
+  color: $color-text-muted;
+}
+
+.record-values {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  font-size: $font-sm;
+
+  span {
+    white-space: nowrap;
+  }
+}

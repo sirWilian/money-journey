@@ -1,0 +1,38 @@
+// ============================================
+// Reusable Mixins
+// ============================================
+@use '@/styles/variables' as *;
+
+// --- Card base style ---
+@mixin card-base {
+  background: $color-card-bg;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+// --- Button base style ---
+@mixin button-base {
+  border: none;
+  border-radius: $radius-md;
+  font-size: $font-base;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+// --- Input base style ---
+@mixin input-base {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-base;
+  background: $color-input-bg;
+  color: $color-text;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}

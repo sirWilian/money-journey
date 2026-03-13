@@ -1,0 +1,43 @@
+// ============================================
+// Button Components
+// ============================================
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+button[type="submit"],
+.btn-primary {
+  @include button-base;
+  padding: 0.6rem 1.25rem;
+  background: $color-primary;
+  color: #fff;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+}
+
+.btn-secondary {
+  @include button-base;
+  padding: 0.6rem 1.25rem;
+  background: transparent;
+  color: $color-text;
+  border: 1px solid $color-border;
+
+  &:hover {
+    background: $color-border;
+  }
+}
+
+.btn-delete {
+  @include button-base;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: $color-danger;
+  border: 1px solid $color-danger;
+  font-size: $font-xs;
+
+  &:hover {
+    background: $color-danger;
+    color: #fff;
+  }
+}

@@ -1,0 +1,67 @@
+// ============================================
+// Form Components
+// ============================================
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    flex: 1;
+    min-width: 150px;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.form-section {
+  margin-top: $spacing-sm;
+
+  > input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: $font-xs;
+    color: $color-text-muted;
+  }
+}
+
+// --- Global input styles ---
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  @include input-base;
+}
+
+input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.filter-select {
+  max-width: 200px;
+}

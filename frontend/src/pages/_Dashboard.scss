@@ -1,0 +1,55 @@
+// ============================================
+// Dashboard Page Styles
+// ============================================
+@use '@/styles/variables' as *;
+
+// --- Period filter ---
+.period-filter {
+  .form-row {
+    align-items: flex-end;
+  }
+}
+
+// --- Charts grid ---
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  gap: $spacing-lg;
+}
+
+// --- Investment projection ---
+.projection-section {
+  margin-top: $spacing-xl;
+
+  > h2 {
+    margin-bottom: $spacing-lg;
+    font-size: $font-2xl;
+  }
+}
+
+.projection-config {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.projection-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  padding: $spacing-md;
+  background: $color-tag-bg;
+  border-radius: $radius-md;
+  font-size: $font-base;
+
+  .summary-item {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .gain strong {
+    color: $color-primary;
+  }
+}

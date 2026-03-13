@@ -1,0 +1,35 @@
+// ============================================
+// Card Components
+// ============================================
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.form-card {
+  @include card-base;
+  margin-bottom: $spacing-lg;
+
+  h3 {
+    margin-bottom: $spacing-md;
+    font-size: $font-xl;
+  }
+
+  h4 {
+    margin: $spacing-md 0 $spacing-sm;
+    font-size: $font-md;
+    color: $color-text-muted;
+  }
+}
+
+.list-card {
+  @include card-base;
+  margin-bottom: $spacing-lg;
+}
+
+.chart-card {
+  @include card-base;
+
+  h3 {
+    margin-bottom: $spacing-md;
+    font-size: $font-lg;
+  }
+}

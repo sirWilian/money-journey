@@ -1,0 +1,39 @@
+// ============================================
+// Pages — shared page layout + page-specific imports
+// ============================================
+
+// Shared component styles
+@use '@/styles/forms';
+@use '@/styles/buttons';
+@use '@/styles/cards';
+@use '@/styles/lists';
+
+// Page-specific partials
+@use 'Dashboard';
+@use 'Banks';
+@use 'Expenses';
+@use 'BalanceRecords';
+
+// --- Generic page layout ---
+.page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  h2 {
+    margin-bottom: $spacing-lg;
+    font-size: $font-2xl;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  color: $color-text-muted;
+  padding: $spacing-xl 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: $color-text-muted;
+}

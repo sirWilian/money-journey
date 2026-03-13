@@ -1,0 +1,28 @@
+// ============================================
+// Expenses Page Styles
+// ============================================
+@use '@/styles/variables' as *;
+
+.expense-row {
+  flex-wrap: wrap;
+}
+
+.expense-info {
+  flex: 1;
+  min-width: 200px;
+
+  strong {
+    display: block;
+  }
+}
+
+.expense-meta {
+  font-size: $font-xs;
+  color: $color-text-muted;
+}
+
+.expense-amount {
+  font-weight: 600;
+  color: $color-danger;
+  white-space: nowrap;
+}

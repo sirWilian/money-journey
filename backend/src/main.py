@@ -1,17 +1,30 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+from src.config import settings
+from src.database import Base, engine
+from src.routers import health, banks, expenses, balance_records
 
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], # prod should be "http://localhost:5173" or something like it 
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+def create_app() -> FastAPI:
+    Base.metadata.create_all(bind=engine)
 
-@app.get("/api/hello")
-def read_root():
-    return {"message": "Olá do Backend em Python! O Money Journey começou."}
+    app = FastAPI(title=settings.app_name, debug=settings.debug)
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.cors_origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    app.include_router(health.router)
+    app.include_router(banks.router)
+    app.include_router(expenses.router)
+    app.include_router(balance_records.router)
+
+    return app
+
+
+app = create_app()
