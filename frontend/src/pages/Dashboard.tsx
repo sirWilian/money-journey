@@ -81,6 +81,11 @@ function computeProjection(
   return points;
 }
 
+// TODO: add summary cards (total balance, total investments, total expenses)
+// TODO: add multi-bank comparison chart
+// TODO: add monthly expense trend line
+// TODO: add export to CSV/PDF
+// TODO: add currency toggle (BRL / USD)
 export default function Dashboard() {
   const [records, setRecords] = useState<BalanceRecord[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
