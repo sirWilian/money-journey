@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext.jsx';
+import Nav from './components/Nav.jsx';
+import Dashboard from './features/dashboard/Dashboard.jsx';
+import CoastFirePage from './features/coast-fire/CoastFirePage.jsx';
+import './App.css';
 
-function App() {
-  const [data, setData] = useState([]);
+const NAV_LINKS = [
+  { label: 'Dashboard',   href: '/' },
+  { label: 'Portfolio',   href: '#' },
+  { label: 'Calculators', href: '/calculators/coast-fire' },
+  { label: 'Settings',    href: '#' },
+];
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/chart-data')
-      .then(res => setData(res.data))
-      .catch(err => console.error("Erro na API:", err));
-  }, []);
-
+export default function App() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>Money Journey 📈</h1>
-      <div style={{ background: '#f4f4f4', padding: '20px', borderRadius: '8px' }}>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Nav links={NAV_LINKS} />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/calculators/coast-fire" element={<CoastFirePage />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
-
-export default App;
