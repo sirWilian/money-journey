@@ -344,6 +344,36 @@ input[type=range]:focus-visible::-webkit-slider-thumb {
   }
 }
 
+/* ── Coast FIRE two-column layout ───────────────────────── */
+.grid--coast-fire {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .grid--coast-fire {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Number input (used by CoastFirePage) ───────────────── */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+.cf-num-input {
+  font-family: var(--font-mono);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.cf-num-input:focus {
+  border-color: var(--color-interactive);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
 @media (max-width: 480px) {
   .container {
     padding-inline: var(--space-4);
